@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CustomPackageManager</string>
+    <string name="package_icon">Package Icon</string>
+</resources>
