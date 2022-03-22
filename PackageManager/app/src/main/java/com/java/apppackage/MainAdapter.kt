@@ -8,8 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.java.custompackage.PackageInfo
 
-class MainAdapter(private val appsPackageList: ArrayList<PackageInfo>) :
+class MainAdapter() :
     RecyclerView.Adapter<PackageViewHolder>() {
+
+    private var appsPackageList: List<PackageInfo> = listOf()
 
     override fun onBindViewHolder(viewHolder: PackageViewHolder, i: Int) {
         viewHolder.bindView(appsPackageList[i])
@@ -24,6 +26,24 @@ class MainAdapter(private val appsPackageList: ArrayList<PackageInfo>) :
         val view: View = inflater.inflate(R.layout.launcher_row, parent, false)
         return PackageViewHolder(view)
     }
+
+    fun setItem(list: List<PackageInfo>) {
+        appsPackageList = list
+        notifyDataSetChanged()
+    }
+
+    fun getItem(): List<PackageInfo> {
+        return appsPackageList
+    }
+
+
+    var originalData: List<PackageInfo> = ArrayList()
+
+    fun updateList(updatedList: List<PackageInfo>) {
+        appsPackageList = updatedList
+        notifyDataSetChanged()
+    }
+
 }
 
 class PackageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {

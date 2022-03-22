@@ -25,11 +25,9 @@ class CustomPackageManager(pContext: Context) : BroadcastReceiver() {
         val packageName = intent?.data?.encodedSchemeSpecificPart
         packageListener?.packageUpdated(getAllInstalledAppsPackage())
         if (isPackageExisted(packageName)) {
-            if (BuildConfig.DEBUG) Log.d(TAG, "$packageName is installed !!!")
             Toast.makeText(context, "$packageName is installed !!!", Toast.LENGTH_LONG)
                 .show()
         } else {
-            if (BuildConfig.DEBUG) Log.d(TAG, "$packageName is removed !!!")
             Toast.makeText(context, "$packageName is removed !!!", Toast.LENGTH_LONG)
                 .show()
         }
